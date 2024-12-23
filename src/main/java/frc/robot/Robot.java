@@ -43,6 +43,15 @@ public class Robot extends TimedRobot {
   private Spark motorAtrasIzquierdaMovimiento = new Spark(4); //Puerto PWM 4
   private Spark motorAtrasDerechaMovimiento = new Spark(5); //Puerto PWM 5
 
+  //RECOLECCIÓN
+  // Motores de recolección
+  private Spark motorArribaRecoleccion = new Spark(6); //Puerto PWM 6
+  private Spark motorAbajoRecoleccion = new Spark(7); //Puerto PWM 7
+
+  @Override
+  public void robotinit () {
+    Recoleccion.recoleccionPeriodico(Spark motorAbajoRecoleccion, Spark motorArribaRecoleccion);
+  }
   @Override
   public void robotPeriodic() {
     //esto se esta actualizando todo el tiempo
