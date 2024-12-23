@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 public class Robot extends TimedRobot {
 
   // Motores lanzamiento
-  private final Spark motorArriba = new Spark(0); // Puerto PWM 0
-  private final Spark motorAbajo = new Spark(1); // Puerto PWM 1
+  private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
+  private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
 
   // Joystick
   private final Joystick joystick = new Joystick(0); // Puerto USB 0
@@ -41,39 +41,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // verifica si el botón está presionado y los motores no están corriendo
-    if (joystick.getRawButtonPressed(botonActivarTiro) && !estanActivos && hayDisco) {
-      estanActivos = true;
-
-      // Encender motores: uno hacia adelante, otro hacia atrás
-      motorArriba.set(1.0); // Velocidad máxima hacia adelante
-      motorAbajo.set(-1.0); // Velocidad máxima hacia atrás
-    }
-
-    if (joystick.getRawButtonPressed(botonDisparoForzado) && !estanActivos) {
-      estanActivos = true;
-      timer.reset();
-      timer.start();
-
-      // Encender motores: uno hacia adelante, otro hacia atrás
-      motorArriba.set(1.0); // Velocidad máxima hacia adelante
-      motorAbajo.set(-1.0); // Velocidad máxima hacia atrás
-    }
-
-    //apagar si no hay disco
-    if (estanActivos && !hayDisco) {
-      motorArriba.set(0.0);
-      motorAbajo.set(0.0);
-      estanActivos = false;
-    }
-
-    // Detener motores después de 1 segundos si se activo el disparo forzado
-    if (estanActivos && timer.get() >= 1.0) {
-      motorArriba.set(0.0);
-      motorAbajo.set(0.0);
-      estanActivos = false;
-      timer.stop();
-    }
-
+    Lanzamiento.lanzamientoPeriodico(motorArribaLanzamiento, motorAbajoLanzamiento, joystick, botonActivarTiro, botonDisparoForzado, timer, estanActivos, sensorDisco, hayDisco);
   }
 }
