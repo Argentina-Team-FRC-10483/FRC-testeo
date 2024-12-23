@@ -5,13 +5,15 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
-
 public class Robot extends TimedRobot {
 
-// LANZAMIENTO
   // Motores lanzamiento
   private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
   private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
+  
+  // Motores Enganche
+  private final Spark motorLeftEnganche =new Spark(6); // Puerto PWM 2
+  private final Spark motorRightEnganche =new Spark(7); // Puerto PWM 3
 
   // Joystick
   private final Joystick joystick = new Joystick(0); // Puerto USB 0
@@ -45,13 +47,10 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     //esto se esta actualizando todo el tiempo
     hayDisco = sensorDisco.get(); // true si el sensor detecta el disco, false si no
-  
   }
 
   @Override
   public void teleopPeriodic() {
     Lanzamiento.lanzamientoPeriodico(motorArribaLanzamiento, motorAbajoLanzamiento, joystick, botonActivarTiro, botonDisparoForzado, timer, estanActivos, sensorDisco, hayDisco);
-
-    Movimiento.movimientoPeriodico(joystick, motorAdelanteIzquierdaMovimiento, motorAdelanteDerechaMovimiento, motorAtrasIzquierdaMovimiento, motorAtrasDerechaMovimiento);
   }
 }
