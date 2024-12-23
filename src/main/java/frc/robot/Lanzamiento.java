@@ -18,11 +18,11 @@ public class Lanzamiento {
         motorAbajoLanzamiento.set(-1.0); // Velocidad máxima hacia atrás
       }
   
-      if (joystick.getRawButtonPressed(botonDisparoForzado) && !estanActivos) {
+      if (joystick.getRawButtonPressed(botonDisparoForzado)) {
         estanActivos = true;
         timer.reset();
         timer.start();
-  
+         System.out.println("Dispare");
         // Encender motores: uno hacia adelante, otro hacia atrás
         motorArribaLanzamiento.set(1.0); // Velocidad máxima hacia adelante
         motorAbajoLanzamiento.set(-1.0); // Velocidad máxima hacia atrás

@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public class Robot extends TimedRobot {
 
+// LANZAMIENTO
   // Motores lanzamiento
   private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
   private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
@@ -33,14 +34,24 @@ public class Robot extends TimedRobot {
   //Indica si se encuentra o no un disco zona de lanzamiento
   private boolean hayDisco = false; //no importa que inicie en falso porque este valor se actualiza todo el tiempo
 
+  //MOVIMIENTO
+  //Motores movimiento
+  private Spark motorAdelanteIzquierdaMovimiento = new Spark(2); //Puerto PWM 2
+  private Spark motorAdelanteDerechaMovimiento = new Spark(3); //Puerto PWM 3
+  private Spark motorAtrasIzquierdaMovimiento = new Spark(4); //Puerto PWM 4
+  private Spark motorAtrasDerechaMovimiento = new Spark(5); //Puerto PWM 5
+
   @Override
   public void robotPeriodic() {
     //esto se esta actualizando todo el tiempo
     hayDisco = sensorDisco.get(); // true si el sensor detecta el disco, false si no
+  
   }
 
   @Override
   public void teleopPeriodic() {
     Lanzamiento.lanzamientoPeriodico(motorArribaLanzamiento, motorAbajoLanzamiento, joystick, botonActivarTiro, botonDisparoForzado, timer, estanActivos, sensorDisco, hayDisco);
+
+    Movimiento.movimientoPeriodico(joystick, motorAdelanteIzquierdaMovimiento, motorAdelanteDerechaMovimiento, motorAtrasIzquierdaMovimiento, motorAtrasDerechaMovimiento);
   }
 }
