@@ -16,7 +16,7 @@ public class Movimiento {
         motorAdelanteIzquierdaMovimiento.set(izquierda);
         motorAtrasDerechaMovimiento.set(-derecha);
         motorAtrasIzquierdaMovimiento.set(-derecha);
-        
+
         /* 
         Otra forma (hay que probar ambas)
         // Calcular velocidades para cada rueda
@@ -32,4 +32,4 @@ public class Movimiento {
         motorAtrasDerechaMovimiento.set(-motorAtrasDerechaVelocidad);       // Invertido por montaje físico
         */
     }
-}
+}3
