@@ -12,6 +12,7 @@ public class Robot extends TimedRobot {
   private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
   private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
 
+  
   // Joystick
   private final Joystick joystick = new Joystick(0); // Puerto USB 0
 
