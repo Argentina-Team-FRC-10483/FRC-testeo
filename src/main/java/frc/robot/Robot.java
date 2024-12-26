@@ -49,10 +49,6 @@ public class Robot extends TimedRobot {
   private Spark motorAbajoRecoleccion = new Spark(7); //Puerto PWM 7
 
   @Override
-  public void robotinit () {
-    Recoleccion.recoleccionPeriodico(Spark motorAbajoRecoleccion, Spark motorArribaRecoleccion);
-  }
-  @Override
   public void robotPeriodic() {
     //esto se esta actualizando todo el tiempo
     hayDisco = sensorDisco.get(); // true si el sensor detecta el disco, false si no
@@ -63,9 +59,8 @@ public class Robot extends TimedRobot {
     
     Lanzamiento.lanzamientoPeriodico(motorArribaLanzamiento, motorAbajoLanzamiento, joystick, botonActivarTiro, botonDisparoForzado, timer, estanActivos, sensorDisco, hayDisco);
     Movimiento.movimientoPeriodico(joystick, motorAdelanteIzquierdaMovimiento, motorAdelanteDerechaMovimiento, motorAtrasIzquierdaMovimiento, motorAtrasDerechaMovimiento);
-    Recoleccion.recoleccionPeriodico(null, null);
     Enganche.enganchePeriodico(joystick, motorLeftEnganche, motorRightEnganche);
-
+    Recoleccion.recoleccionPeriodico(Spark motorAbajoRecoleccion, Spark motorArribaRecoleccion);
 
   }
 }
