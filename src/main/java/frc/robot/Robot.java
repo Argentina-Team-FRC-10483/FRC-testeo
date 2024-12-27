@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
     //esto se esta actualizando todo el tiempo
     hayDisco = sensorDisco.get(); // true si el sensor detecta el disco, false si no
   }
-
+//cambio
   @Override
   public void teleopPeriodic() {
     Lanzamiento.lanzamientoPeriodico(motorArribaLanzamiento, motorAbajoLanzamiento, joystick, botonActivarTiro, botonDisparoForzado, timer, estanActivos, sensorDisco, hayDisco);
