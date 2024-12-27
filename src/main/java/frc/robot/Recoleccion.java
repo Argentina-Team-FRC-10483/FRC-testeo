@@ -1,5 +1,7 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
+
 public class Recoleccion {
     public static void recoleccionPeriodico(Spark motorAbajoRecoleccion, Spark motorArribaRecoleccion){
         motorAbajoRecoleccion.set(1.0);
