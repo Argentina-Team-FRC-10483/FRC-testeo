@@ -8,11 +8,6 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public class Robot extends TimedRobot {
 
-  // Motores lanzamiento
-  private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
-  private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
-
-  
   // Joystick
   private final Joystick joystick = new Joystick(0); // Puerto USB 0
 
@@ -34,6 +29,12 @@ public class Robot extends TimedRobot {
   // Indica si se encuentra o no un disco en la zona de lanzamiento
   private boolean hayDisco = false; // No importa que inicie en falso porque este valor se actualiza todo el tiempo
 
+  // Motores
+  
+  // Lanzamiento
+  private final Spark motorArribaLanzamiento = new Spark(0); // Puerto PWM 0
+  private final Spark motorAbajoLanzamiento = new Spark(1); // Puerto PWM 1
+
   // Movimiento
   private Spark motorAdelanteIzquierdaMovimiento = new Spark(2); // Puerto PWM 2
   private Spark motorAdelanteDerechaMovimiento = new Spark(3); // Puerto PWM 3
@@ -43,6 +44,7 @@ public class Robot extends TimedRobot {
   // Recolección
   private Spark motorArribaRecoleccion = new Spark(6); // Puerto PWM 6
   private Spark motorAbajoRecoleccion = new Spark(7); // Puerto PWM 7
+
 
   // Enganche
   private Spark motorLeftEnganche = new Spark(8); // Puerto PWM 8
