@@ -8,3 +8,5 @@ public class Recoleccion {
         motorArribaRecoleccion.set(-1.0);
     }
 }
+
+//Girara desde el inicio
