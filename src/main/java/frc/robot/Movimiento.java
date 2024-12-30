@@ -5,10 +5,14 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public class Movimiento {
     public static void movimientoPeriodico(Joystick joystick, Spark motorAdelanteIzquierdaMovimiento, Spark motorAdelanteDerechaMovimiento, Spark motorAtrasIzquierdaMovimiento, Spark motorAtrasDerechaMovimiento){
+        final double deadzone = 0.3; //deadzone modificable para el raw movement del joystick
+        
+        double rawVelocidad = -joystick.getRawAxis(1); //el negativo significa que arriba es negativo y abajo es positivo
+        double rawGiro = joystick.getRawAxis(4);
 
-        double velocidad = -joystick.getRawAxis(1) * 0.6; //el negativo significa que arriba es negativo y abajo es positivo
-        double giro = joystick.getRawAxis(4) * 0.3; //lo que se multiplica es para bajar la velocidad y el giro para que sea mas manejable
-    
+        double velocidad = (Math.abs(rawVelocidad) > deadzone) ? -rawVelocidad * 0.6 : 0; // if statement para checkear que el rawmovement del joystick no sea menor que la deadzone
+        double giro = (Math.abs(rawGiro) > deadzone) ? rawGiro * 0.3 : 0; // if statement para checkear que el rawgiro del joystick no sea menor que la deadzone
+
         /*
         double izquierda = velocidad + giro;
         double derecha = velocidad - giro;
