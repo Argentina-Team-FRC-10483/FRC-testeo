@@ -17,7 +17,6 @@ public class DriveCommand extends Command {
         addRequirements(subSystem);
     }
 
-    
     @Override
     public void execute(){
         double xAxis = xAxisSupplier.getAsDouble();
