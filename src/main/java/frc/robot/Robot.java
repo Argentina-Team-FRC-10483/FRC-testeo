@@ -49,11 +49,11 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     // Esto se está actualizando todo el tiempo
     hayDisco = sensorDisco.get(); // True si el sensor detecta el disco, false si no
-    CommandScheduler.getInstance().run();
+    
   }
 
   @Override
   public void teleopPeriodic() {
-    
+    CommandScheduler.getInstance().run();
   }
 }
