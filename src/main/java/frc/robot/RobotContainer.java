@@ -15,15 +15,9 @@ public class RobotContainer {
     private final CommandJoystick joystick = new CommandJoystick(0);
 
     public RobotContainer() {
-        // Comandos por defecto
         movimiento.setDefaultCommand(new DriveCommand(subDrive,
          () -> joystick.getRawAxis(0),
          () -> joystick.getRawAxis(1)
           ));
-        recoleccion.setDefaultCommand(new RecoleccionCommand(recoleccion));
-        enganche.setDefaultCommand();
-        lanzamiento.setDefaultCommand(new LanzamientoCommand(lanzamiento,
-
-            ));
     }
 }
