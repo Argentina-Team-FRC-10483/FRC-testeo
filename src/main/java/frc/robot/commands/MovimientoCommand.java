@@ -10,7 +10,7 @@ public class MovimientoCommand extends Command {
     private DoubleSupplier yAxisSupplier;
     private Movimiento subSystem;
 
-    public Movimiento(Movimiento subSystem, DoubleSupplier xAxisSupplier, DoubleSupplier yAxisSupplier){
+    public MovimientoCommand(Movimiento subSystem, DoubleSupplier xAxisSupplier, DoubleSupplier yAxisSupplier){
         this.xAxisSupplier = xAxisSupplier;
         this.yAxisSupplier = yAxisSupplier;
         this.subSystem = subSystem;

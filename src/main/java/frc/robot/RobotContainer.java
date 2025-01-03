@@ -16,7 +16,7 @@ public class RobotContainer {
 
     public RobotContainer() {
         // Comandos por defecto
-        subDrive.setDefaultCommand(new DriveCommand(subDrive,
+        movimiento.setDefaultCommand(new DriveCommand(subDrive,
          () -> joystick.getRawAxis(0),
          () -> joystick.getRawAxis(1)
           ));
